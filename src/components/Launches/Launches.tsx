@@ -1,19 +1,24 @@
 import React from 'react'
 import { LaucnhesQuery } from "../../generated/graphql";
 import classNames from "classnames"
+import {Link} from "react-router-dom"
 
-interface Props {
-    data: LaucnhesQuery
+export interface OwnProps {
+    handleIdChange: (newId: number) => void;
 }
-
-const Launches: React.FC<Props> = ({ data }) => {
+interface Props extends OwnProps {
+    data: LaucnhesQuery;
+  }
+const Launches: React.FC<Props> = ({ data, handleIdChange }) => {
 
     return (
         <div className='launches container py-2'>
             <h1>All Launches</h1>
             <ul className="launchesList">
                 {!!data.launches && data.launches.map((Launch, i) => !!Launch && (
-                    <li className="launch card bg-dark my-2 shadow" key={i}>
+                    <li className="launch card bg-dark my-2 shadow" key={i}
+                    onClick={()=> handleIdChange(Launch.flight_number!)}
+                    >
                         <h5 className={classNames("card-header", {
                             "bg-success": Launch.launch_success,
                             "bg-danger": !Launch.launch_success
@@ -28,7 +33,10 @@ const Launches: React.FC<Props> = ({ data }) => {
                                 </span>
                             </h2>
                             <p className="card-text">Launch Date: {Launch.launch_date_local}</p>
-                            <p className="card-text"><strong>Mission was: {Launch.launch_success ? "Passed" : "Failed"}</strong></p>
+                            <div className="row">
+                                <p className="card-text col-md-8"><strong>Mission was: {Launch.launch_success ? "Passed" : "Failed"}</strong></p>
+                                <Link className="btn btn-light text-wrap col-md-4" to={`/launch/${Launch.flight_number}`}>Launch Detail</Link>
+                            </div>
                         </div>
                     </li>
                 ))

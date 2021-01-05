@@ -87,7 +87,7 @@ nav .search i{
     margin-bottom: 30px;
     font-weight: 400;
 }
-.left-section button{
+.left-section .bannerBTN{
     cursor: pointer;
     padding: 10px 20px;
     border-radius: 50px;
@@ -97,8 +97,9 @@ nav .search i{
     font-weight: bold;
     outline: none;
     transition: ease-in-out .1s;
+    text-decoration: none;
 }
-.left-section button:hover{
+.left-section .bannerBTN:hover{
     background-color: transparent;
     color: var(--pure);
 }
@@ -186,7 +187,7 @@ nav .search i{
     .hero .right-section img{
         height: 30vh;
     }
-    .left-section button{
+    .left-section .bannerBTN{
         padding: 5px 10px;
         font-size: 12px;
     }
@@ -214,4 +215,13 @@ nav .search i{
 }
 .launchesList li{
     list-style: none !important;
+}
+.missionImg{
+    width: 100%;
+    margin: 0 auto;
+}
+.missionImg img{
+    width: calc(50% - 10px);
+    margin: 2px;
+    border: solid 2px var(--pure);
 }
