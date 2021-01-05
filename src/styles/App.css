@@ -1,0 +1,217 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;0,700;0,800;0,900;1,600;1,800&display=swap');
+@import url("./variable.css");
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+}
+body{
+    font-family: 'Montserrat', sans-serif;
+    color: var(--pure);
+    background-color: var(--primary);
+}
+nav{
+    position: sticky;
+    background-color: var(--primary);
+    top: 0;
+    z-index: 10;
+    padding: 20px 40px 20px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-items: center;
+    border-bottom: 1px solid var(--gray);
+}
+nav .nav-right{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.nav-links a{
+    position: relative;
+    color: var(--pure);
+    text-decoration: none;
+    margin-right: 30px;
+}
+.nav-links a::after{
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    left: 0;
+    bottom: -30px;
+    background-color: var(--pure);
+    transition: width .3s ease-in-out;
+}
+.nav-links a:hover::after{
+    width: 70%;
+}
+.nav-links a.active::after{
+    width: 70%;
+}
+nav .search{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    border: 2px solid var(--pure);
+    padding: 10px 15px;
+    border-radius: 50px;
+}
+nav .search input{
+    background-color: transparent;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    color: var(--pure);
+}
+nav .search i{
+    padding-right: 16px;
+}
+.hero{
+    background-image: linear-gradient(135deg, rgba(0,0,0,1),rgba(0,0,0,0.2)), url("../images/sunrise.jpg");
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: calc(100vh - 100px);
+}
+.left-section{
+    padding: 0 60px 0 60px;
+}
+.left-section h2{
+    font-size: 22px;
+    line-height: 1.7;
+    margin-bottom: 30px;
+    font-weight: 400;
+}
+.left-section button{
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 50px;
+    background-color: var(--pure);
+    border: 2px solid var(--pure);
+    color: var(--dark);
+    font-weight: bold;
+    outline: none;
+    transition: ease-in-out .1s;
+}
+.left-section button:hover{
+    background-color: transparent;
+    color: var(--pure);
+}
+.left-section .socialIcons{
+    display: flex;
+    align-items: center;
+    margin-top: 30px;
+}
+.socialIcons div{
+    margin-right: 30px;
+    border-radius: 50%;
+    border: 2px solid var(--pure);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: moveIn 1s ease-in-out forwards;
+}
+@keyframes moveIn {
+    from{
+        transform: translateX(-100px);
+    }
+    to{
+        transform: translateX(0px);
+        opacity: 1;
+    }
+}
+.socialIcons div a i{
+    color: var(--pure);
+    font-size: 20px;
+}
+.socialIcons div:hover{
+    background-color: var(--pure);
+}
+.socialIcons div:hover a i{
+    color: var(--dark);
+}
+.hero > div{
+    flex: 1;
+}
+.hero .right-section img{
+    height: 70vh;
+    animation: moveInSpace ease-in-out 12s infinite;
+    transform: rotate(20px);
+}
+@keyframes moveInSpace{
+    50%{
+        transform: translateY(100px) rotate(-30deg) scale(0.6);
+    }
+}
+@media only screen and (max-width: 1000px){
+    nav{
+        flex-direction: column;
+        padding: 20px 10px 20px 10px;
+    }
+    nav .nav-right{
+        margin-top: 20px;
+        justify-content: space-evenly;
+    }
+    nav .search{
+        display: none;
+    }
+}
+@media only screen and (max-width: 800px){
+    .hero{
+        flex-direction: column;
+    }
+    .nav-links a{
+        font-size: 12px;
+        margin-right: 10px;
+    } 
+    .left-section{
+        padding: 60px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .left-section h2{
+        text-align: center;
+        font-size: 12px;
+        margin-bottom: 20px;
+    }
+    .hero .right-section img{
+        height: 30vh;
+    }
+    .left-section button{
+        padding: 5px 10px;
+        font-size: 12px;
+    }
+    .left-section .socialIcons{
+        margin-top: 20px;
+    }
+    .socialIcons div{
+        margin: 0 30px;
+        width: 30px;
+        height: 30px;
+    }
+    .socialIcons div a i{
+        font-size: 12px;
+    }
+}
+.loadingError{
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.launchesList{
+    margin: 0 !important;
+    padding: 0 !important;
+}
+.launchesList li{
+    list-style: none !important;
+}

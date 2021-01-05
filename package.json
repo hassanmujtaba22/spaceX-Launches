@@ -3,24 +3,79 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@testing-library/jest-dom": "^5.11.4",
-    "@testing-library/react": "^11.1.0",
-    "@testing-library/user-event": "^12.1.10",
+    "@types/classnames": "^2.2.11",
     "@types/jest": "^26.0.15",
     "@types/node": "^12.0.0",
     "@types/react": "^16.9.53",
     "@types/react-dom": "^16.9.8",
+    "apollo-boost": "^0.4.9",
+    "classnames": "^2.2.6",
+    "graphql": "^15.4.0",
+    "graphql-tag": "^2.11.0",
+    "moment": "^2.29.1",
     "react": "^17.0.1",
+    "react-apollo": "^3.1.5",
+    "react-apollo-hooks": "^0.5.0",
     "react-dom": "^17.0.1",
+    "react-moment": "^1.1.1",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.1",
     "typescript": "^4.0.3",
     "web-vitals": "^0.2.4"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx,ts,tsx}",
+      "!src/**/*.d.ts",
+      "!src/index.tsx",
+      "!src/serviceWorker.ts",
+      "!src/reportWebVitals.ts"
+    ],
+    "coveragePathIgnorePatterns": [
+      "./src/*/*.types.{ts,tsx}",
+      "./src/index.tsx",
+      "./src/serviceWorker.ts"
+    ],
+    "coverageReporters": [
+      "json",
+      "lcov",
+      "text-summary",
+      "clover"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "statements": 95,
+        "branches": 95,
+        "lines": 95,
+        "functions": 95
+      }
+    },
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
+    "transform": {
+      "^.+\\.(js|jsx|ts|tsx)$": "<rootDir>/node_modules/ts-jest"
+    },
+    "transformIgnorePatterns": [
+      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|ts|tsx)$",
+      "^.+\\.module\\.(css|sass|scss)$"
+    ],
+    "moduleNameMapper": {
+      "^react-native$": "react-native-web",
+      "^.+\\.module\\.(css|sass|scss)$": "identity-obj-proxy",
+      "src/(.*)$": "<rootDir>/src/$1"
+    }
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "test:coverage": "react-scripts test --coverage --runInBand --watchAll=false",
+    "eject": "react-scripts eject",
+    "lint": "eslint --ext .js,.jsx,.ts,.tsx src --color",
+    "format": "prettier --write src/**/*.{ts,tsx,scss,css,json}",
+    "isready": "npm run format && npm run lint && npm run test:coverage && npm run build",
+    "codegen": "graphql-codegen --config codegen.yml"
   },
   "eslintConfig": {
     "extends": [
@@ -39,5 +94,20 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@apollo/client": "^3.3.6",
+    "@graphql-codegen/cli": "1.20.0",
+    "@graphql-codegen/typescript": "1.20.0",
+    "@graphql-codegen/typescript-operations": "^1.17.13",
+    "@graphql-codegen/typescript-react-apollo": "2.2.1",
+    "@types/enzyme": "3.10.8",
+    "@types/enzyme-adapter-react-16": "1.0.6",
+    "@types/react-router-dom": "^5.1.7",
+    "enzyme": "3.11.0",
+    "enzyme-adapter-react-16": "1.15.5",
+    "enzyme-to-json": "3.6.1",
+    "jest-fetch-mock": "3.0.3",
+    "ts-jest": "26.4.4"
   }
 }
