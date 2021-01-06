@@ -13,8 +13,8 @@ function Nav() {
                     <div className="nav-links">
                         <NavLink to="/" exact activeClassName="active">Home</NavLink>
                         <NavLink to="/launches" exact activeClassName="active">Launches</NavLink>
-                        <NavLink to="/launchDetail" exact activeClassName="active">Rockets</NavLink>
-                        <NavLink to="/djdadj" exact activeClassName="active">Ships</NavLink>
+                        <NavLink to="/rocket" exact activeClassName="active">Rockets</NavLink>
+                        <NavLink to="/about" exact activeClassName="active">About</NavLink>
                     </div>
                     <div className="search">
                         <i className="fa fa-search" aria-hidden="true"></i>

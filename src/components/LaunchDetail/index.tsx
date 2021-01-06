@@ -10,8 +10,7 @@ function LaunchDetailContainer({ id }: OwnProps) {
         // fetch();
       }, [id]);
     if (error) return <h1 className="loadingError">Error!</h1>
-    if (!data) return <h1 className="loadingError">Please Select a mission for it's detail</h1>
-    if (loading) return <h1 className="loadingError">Loading</h1>
+    if (loading || !data) return <h1 className="loadingError">Loading</h1>
     console.log(data);
     
     return (

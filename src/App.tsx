@@ -27,6 +27,11 @@ function App() {
         <Route path="/launch/">
           <LaunchDetailContainer id={id} />
         </Route>
+        <Route path="*">
+          <div className="notFound">
+            <h1>404 Not Found</h1>
+          </div>
+        </Route>
       </Switch>
     </BrowserRouter>
   )

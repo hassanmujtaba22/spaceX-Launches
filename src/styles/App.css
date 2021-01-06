@@ -225,3 +225,14 @@ nav .search i{
     margin: 2px;
     border: solid 2px var(--pure);
 }
+.notFound{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: calc(100vh - 100px);
+}
+.notFound h1{
+    font-weight: 900;
+    letter-spacing: 2px;
+}
