@@ -17,21 +17,26 @@ function App() {
   }, [])
 
   return (
-    <BrowserRouter>
-      <Nav />
-      <Switch>
-        <Route path="/" exact component={Home} />
+    <BrowserRouter data-test="BrowserRouter">
+      <Nav data-test="Nav" />
+      <Switch data-test="Switch">
+      
+        <Route path="/" exact component={Home} data-test="HomePage"/>
+
         <Route path="/launches">
-          <LaunchesContainer handleIdChange={handleIdChange} />
+          <LaunchesContainer handleIdChange={handleIdChange} data-test="LaunchContainer" />
         </Route>
+        
         <Route path="/launch/">
-          <LaunchDetailContainer id={id} />
+          <LaunchDetailContainer id={id} data-test="LaunchDetailContainer"/>
         </Route>
+        
         <Route path="*">
-          <div className="notFound">
+          <div className="notFound" data-test="notFound">
             <h1>404 Not Found</h1>
           </div>
         </Route>
+      
       </Switch>
     </BrowserRouter>
   )

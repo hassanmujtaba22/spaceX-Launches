@@ -4,7 +4,7 @@ import Banner from '../Banner'
 function Home() {
     return (
         <div>
-            <Banner/>
+            <Banner data-test="Banner"/>
         </div>
     )
 }

@@ -7,7 +7,7 @@ function Nav() {
         <>
             <nav>
                 <div className="brand">
-                    <Link to="/"><img src={logo} alt="SPACE X" /></Link>
+                    <Link to="/"><img src={logo} alt="SPACE X" data-test="logo" /></Link>
                 </div>
                 <div className="nav-right">
                     <div className="nav-links">
